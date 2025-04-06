@@ -1,0 +1,180 @@
+<div class="report_about">
+                <!--<form method="POST" action="/users/confirmride">-->
+                <center><h3>Student's Attendance</h3></center>
+                <center><h3>Minimum Required:70%</h3></center>
+                {{!-- <form action="/users/manage_attendance" method="POST"> --}}
+
+
+                <center><div class="date_area">
+                        <label><select id="gender" name="month">   
+                                    <option value="All">All</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select></label>
+                          <button onclick="changeElements()" class="date_apply">Show</button>
+                    </div></center>
+                    
+                                
+                {{!-- </form> --}}
+                    <table style="background-color: rgba(0,0,0,0.6);max-width: 90%;margin-left: auto;margin-right: auto;" class="table table-striped table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Student</th>
+                        <th scope="col">{{string}}</th>
+                        <th scope="col">Out Of</th>
+                        <th scope="col">Percentage</th>
+                        <th scope="col">Lectures Required</th>
+                      </tr>
+                    </thead>
+                    
+                    <tbody id="content">
+                    </tbody>
+                    </table>
+                
+            </div>
+
+            <script>
+              var data={{{json data}}};
+              var workingdays={{{json days}}};
+              var all=250;
+              console.log("all total:",workingdays[365]);
+
+              
+              var number=1;
+              
+              {{#ifequal string 'All'}}
+
+             
+                    {{#each data}}
+                                var date=new Date('{{this.created_on}}');
+                                var allOutOf='{{this.all}}';
+                                //allOutOf=Number(allOutOf);
+                                console.log("all attended:"+allOutOf);
+                                    var newHtml='<tr><td>%number%</td><td>%teacher%</td><td>%count%</td><td>%outof%</td><td>%pr%</td><td>%need%</td></tr>';
+
+                                  
+                                    newHtml=newHtml.replace('%number%',number);
+                                    newHtml=newHtml.replace('%teacher%','{{this.name}}');
+                                    newHtml=newHtml.replace('%count%','{{this.all}}');
+                                    var count={{this.all}};
+                                    
+                                  
+                                    count=count*100;
+                                    var pr=count/workingdays[365];
+                                    
+                                    newHtml=newHtml.replace('%outof%',workingdays[365].toString());
+                                    newHtml=newHtml.replace('%pr%',pr.toFixed(2));
+                                    if(allOutOf/workingdays[365]<0.7)
+                                        {
+                                            while(allOutOf/workingdays[365]<0.7)
+                                            {
+                                                countNeed++;
+                                                allOutOf++;
+                                            }  
+                                        }
+                                        else
+                                        {
+                                            countNeed=0
+                                        }
+                                    number++;
+                                    console.log("countNeed:",countNeed);
+                                    newHtml=newHtml.replace('%need%',countNeed);
+                                    document.querySelector('.table').insertAdjacentHTML('beforeend', newHtml);
+                    {{/each}}
+             {{/ifequal}} 
+
+            function changeElements()
+            { 
+              var data={{{json data}}};
+              
+              var month=document.querySelector("#gender").options[document.querySelector("#gender").selectedIndex].text;
+
+
+              var monthValue=document.querySelector("#gender").value;
+               var myNode = document.querySelector('.table');
+                while (myNode.firstChild) {
+                    console.log("remove");
+                    myNode.removeChild(myNode.firstChild);
+                }
+
+                var head='<thead><tr><th scope="col">#</th><th scope="col">Teacher</th><th scope="col">%month%</th><th scope="col">Out Of</th><th scope="col">Percentage</th><th>Lectures Required</th></tr></thead>';
+                 head=head.replace('%month%',month);
+                  document.querySelector('.table').insertAdjacentHTML('afterbegin', head);
+                //console.log(document.querySelector("#gender").value);
+
+                var str='this.'+monthValue;
+               
+                var outof=24;
+                for(var i=0;i<data.length;i++)
+                {
+                                      var newHtml='<tr><td>%number%</td><td>%teacher%</td><td>%count%</td><td>%outof%</td><td>%pr%&nbsp;&nbsp;</td><td>%need%</td></tr>';
+
+                                    
+                                    newHtml=newHtml.replace('%number%',i+1);
+                                    newHtml=newHtml.replace('%teacher%',data[i].name);
+                                    if(monthValue=="All")
+                                    {
+                                        var countNeed=0;
+                                        newHtml=newHtml.replace('%count%',data[i].all);
+                                        newHtml=newHtml.replace('%outof%',workingdays[365]);
+
+                                        var count=data[i].all;
+                                        count=count*100;
+                                        var pr=count/workingdays[365];
+                                        if(data[i].all/workingdays[365]<0.7)
+                                        {
+                                            while(data[i].all/workingdays[365]<0.7)
+                                            {
+                                                countNeed++;
+                                                data[i].all++;
+                                            }  
+                                        }
+                                        else
+                                        {
+                                            countNeed=0
+                                        }
+                                    }
+                                    else
+                                    {
+                                      var countNeed=0;
+                                      newHtml=newHtml.replace('%count%',data[i][monthValue]);
+                                      newHtml=newHtml.replace('%outof%',workingdays[monthValue]);
+                                      var count=data[i][monthValue];
+                                      count=count*100;
+                                      var pr=count/workingdays[monthValue];
+                                      if(data[i][monthValue]/workingdays[monthValue]<0.7)
+                                      {
+                                          while(data[i][monthValue]/workingdays[monthValue]<0.7)
+                                          {
+                                              countNeed++;
+                                              data[i][monthValue]++;
+                                          }  
+                                      }
+                                      else
+                                      {
+                                          countNeed=0
+                                      }
+                                    }
+                                    
+
+                                    newHtml=newHtml.replace('%need%',countNeed);
+                                    newHtml=newHtml.replace('%pr%',pr.toFixed(2));
+                                    document.querySelector('.table').insertAdjacentHTML('beforeend', newHtml);
+                
+                }
+                
+
+            }
+
+            </script>

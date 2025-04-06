@@ -1,0 +1,702 @@
+@import "compass/css3";
+
+@import "compass/css3/transform";
+@import url(https://fonts.googleapis.com/css?family=Bangers);
+*
+{
+    font-family: 'Josefin Sans', sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+background-color: white;
+   }
+.checked {
+    color: orange;
+}
+.brand
+{
+    text-align: center;
+    font-weight: normal;
+    margin-left: 10px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 65px;
+    white-space: nowrap;
+  
+    z-index: 1000;
+    font-family: 'Bangers', cursive;
+    text-shadow: 5px 5px 0 rgba(10, 10, 10, 0.7);
+    @include skew(0, -6.7deg, false);
+    @include transition-property(font-size);
+    @include transition-duration(0.5s);
+}
+@media screen and (max-width: 50em) {
+    .brand {
+      font-size: 12vw;
+     }
+  }
+#map
+{
+    border-radius: 10px;
+    height: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 98%; 
+    margin-left: auto;
+    margin-right: auto;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.radio_btn
+{
+    background-color: aqua;
+    width: 100px;
+    color: black;
+}
+nav
+{
+    position: fixed;
+    overflow: hidden;
+    z-index: 100;
+    color: white;
+}
+.nav-wrapper
+{
+    background-color: #2980b9; 
+}
+.nav-wrapper ul a
+{
+    padding-right:10px; 
+}
+.sidenav li a
+{
+    color: white;
+    font-size: 18px;
+    
+}
+
+.container
+{
+    z-index: 50;
+    margin-top: 30px;
+    display: initial;
+}
+.container1{
+    margin-top:50px; 
+}
+.nav-wrapper a{
+    font-size: 18px;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.no{
+    display: none;
+}
+.about p
+{
+    margin: 0;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 100;
+}
+.about li{
+    max-width:1000px;
+    margin: auto;
+    margin-top: 10px;
+    
+    padding: 10px;
+    min-height: 150px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.about li p{
+    margin: 0;
+    padding: 0;
+    float: left;
+    max-width: 600px;
+    min-height: 80px;
+    font-size: 16px;
+}
+.about li .cont
+{
+    float:right;
+    max-width: 200px;
+}
+
+
+.about li .accept{
+   
+        background-color: white;
+        color: black;
+        border: 2px solid #0f5e05;
+        max-width: 150px;
+        height: 50px;
+        margin-top: 10px;
+        font-size: 18px;
+        font-family: 'Josefin Sans', sans-serif;
+}
+.about li .accept:hover{
+           background-color: #0f5e05;
+           color: white;
+   
+}
+.about li .reject:hover{
+    background-color:rgb(240,0,0);
+    color: white;
+
+}
+.about li .role 
+{
+    margin: auto;
+    padding:0;
+    width: 150px;
+    height: 50px;
+   
+}
+.about li .reject{
+    float: right;
+        background-color: white;
+        color: black;
+        margin-top: 10px;
+        border: 2px solid rgb(240,0,0);
+        max-width: 150px;
+        height: 50px;
+        font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.confirm
+{
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+        width: 150px;
+        height: 50px;
+    margin-top: 10px;
+        font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.chat
+{
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+        width: 150px;
+        height: 50px;
+    margin-top: 10px;
+        font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.input-field 
+{
+    top: 70px;
+    width: 70%;
+    margin: auto;
+    display: block;
+    
+}
+input
+{
+    margin: 10px;
+    font-family: inherit;
+
+}
+.input-field input
+{
+    margin: 10px;
+    font-family: inherit;
+
+}
+.input-field input::placeholder{
+    color: black;
+    opacity: 0.7;
+    text-align: center;
+    font-size: 24px;
+}
+.location
+{
+    float: right;
+}
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.country_label
+{
+    margin-top: 0px;
+    color: black;
+    font-family: inherit;
+    font-size: 24px;
+    opacity: 0.7;
+}
+.input-field.col.s6
+{
+    margin-top: -50px;
+}
+.form
+{
+    margin:0;
+    padding: 1px; 
+    display: block;
+    height: auto;
+}
+.btns
+{
+    position: relative;
+    top: 40px;
+    margin: 70%;
+    margin: auto;
+    margin-top: 70px;
+}
+.log
+{
+    float: right;
+}
+.login
+{
+width: 250px;
+height: 40px;
+    font-family: inherit;
+border: none;
+    background-color: #2ECC40
+;
+    font-size: 24px;
+}
+
+.register
+{
+    margin-top:10px;
+    width: 250px;
+    height: 40px;
+font-family: inherit;
+    border: none;
+    background-color: #FF4136
+;
+    font-size: 24px;
+}
+.reqbtn
+{
+width: 250px;
+height: 40px;
+    font-family: inherit;
+border: none;
+    background-color: #2ECC40
+;
+    font-size: 24px;
+}
+.givebtn
+{
+    margin-top:10px;
+    width: 250px;
+    height: 40px;
+font-family: inherit;
+    border: none;
+    background-color: #FF4136
+;
+    font-size: 24px;
+}
+.space
+{
+	height:50px;
+}
+.marker {
+  background-image: url('/images/mapbox-icon.gif');
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 60px;
+  
+  cursor: pointer;
+}
+.marker1 {
+    background-image: url('/images/mapbox-icon1.gif');
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 60px;
+    
+    cursor: pointer;
+  }
+.mapboxgl-popup {
+  max-width: 200px;
+}
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+.LoginView
+{
+   font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    margin-top: 50px;
+}
+.alert
+{
+  
+    margin: 0;
+    margin-left: 10px;
+	padding:0;
+}
+body
+    {
+        margin: 0;
+        padding: 0;
+    }
+    .container1
+    {
+        margin: 0;
+        padding-top:7em;
+        width: 100%;
+    }
+    .img1
+    {
+        width:100%;
+        border: 1px solid #000;
+        border-radius:100%; 
+        transition: 1s;
+    }
+    .content
+    {
+        margin: 0;
+        margin-bottom:3em;
+        display: inline-block;
+        width:90%;
+        border: 1px solid #000;
+        box-shadow: 5px 10px 18px #888888;
+        padding:1em 1em 1em 1em; 
+    }
+    .primg
+    {
+        width:100px;
+        height:100px;
+        margin: 0;
+    }
+    .profile
+    {
+        margin-top: 4em;
+    }
+    .name
+    {
+        width: 100%;
+        display: inline-block;
+        padding: 1em;
+        border: 1px solid #000;
+    }
+    .name i
+    {
+        float: left;
+        font-size: 24px;
+        color:#000;
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+    }
+    .i
+    {
+        font-size: 20px;
+        color: #000;
+        margin: 0;
+        padding: 0.3em 0em 0em 0.5em;
+        float: left;
+        font-weight: 600;
+    }
+    .ii
+    {
+        font-size:18px;
+        margin: 0;
+        padding:0.4em 0em 0em 0.5em;
+        float: left;
+    }
+    .email
+    {
+        width: 100%;
+        display: inline-block;
+        padding: 1em;
+        border: 1px solid #000;
+    }
+    .email i
+    {
+        float: left;
+        font-size: 24px;
+        color:#000;
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+    }
+    .buttu
+    {
+        margin-bottom: 5em;
+    }
+    .buttu button
+    {
+        font-size: 18px;
+        outline: none;
+        background: transparent;
+        padding: 0.5em 1em;
+        border: 1px solid #000;
+        font-weight: 500;
+        transition: 1s ease-in-out;
+    }
+    .butt:hover
+    {
+       box-shadow: 5px 10px 18px #888888;
+       cursor: pointer;
+    }
+    .buttu i
+    {
+        font-size: 20px;
+        color:#000;
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+    }
+    .container1
+    {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+    }
+    .pan1
+    {
+        display: none;
+    }
+    .pan2
+    {
+        display: none;
+    }
+    .pan3
+    {
+        display: none;
+    }
+    .mapbox-directions-instructions
+    {
+        margin: 0;
+        padding: 0;
+        height: 400px;
+    }
+    .directions-control
+    {
+        width: 300px;
+        height:400px;
+        font-size: 14px;
+     }
+     
+     #main
+	{
+        padding: 1px;
+       
+	}
+	#im
+	{
+		position: relative;
+        margin-top: 10px;    
+		font-size: 280px;
+		color: #333;
+		/*animation: anim 3s infinite;*/
+	}
+	@keyframes anim
+	{
+		0%
+		{
+			top: 0px;
+		}	
+		50%
+		{
+			top: 25px;
+		}
+		100%
+		{
+			top: 0px;
+		}
+	}
+	#shadow1
+	{
+		width: 280px;
+		height: 20px;
+		border-radius: 50%;
+		position: relative;
+		top: 50%;
+		
+		margin-top: 70px;
+		-webkit-filter:blur(20px);
+		
+		animation: anim1 3s infinite;
+	}
+	@keyframes anim1
+	{
+		0%
+		{
+			width: 280px;
+			height:18px;
+			background-color: rgba(0,0,0,0.6); 
+		}	
+		50%
+		{
+			width: 250px;
+			height:13px;
+			background-color: rgba(0,0,0,0.1);
+		}
+		100%
+		{
+			width: 280px;
+			height:18px;
+			background-color: rgba(0,0,0,0.6);		}
+	}
+	#shadow2
+	{
+		width: 0px;
+		height:0px;
+		border-radius: 50%;
+		position: relative;
+		top: 50%;
+		-webkit-filter:blur(10px);
+		
+		animation: anim2 3s infinite;
+	}
+	@keyframes anim2
+	{
+		0%
+		{
+			width: 230px;
+			height:14px;
+			background-color: rgba(0,0,0,0.1); 
+		}	
+		50%
+		{
+			width: 240px;
+			height:13px;
+			background-color: rgba(0,0,0,0.7);
+		}
+		100%
+		{
+			width: 230px;
+			height:14px;
+			background-color: rgba(0,0,0,0.1);		
+		}
+	}
+	#text
+	{
+		font-size: 8vw;
+		font-family: Gloss and Bloom;
+		font-weight: 500;
+		color: #292929;
+		position: absolute;
+		top: 30%;
+		left:35%;
+		transform: translate(-50%,-50%
+			);
+	}
+     
+
+    .date_area
+    {
+        width: 80%;
+        margin: auto;
+    }
+    .date_area label
+    {
+        color: #000;
+        font-size: 18px;
+    }
+    .date_area input[type=date]:not(.browser-default)
+    {
+        width: 200px;
+        margin-left: 10px;
+    }
+    .date_apply
+    {
+        width: 150px;
+height: 40px;
+    font-family: inherit;
+border: none;
+    background-color: #2ECC40
+;
+    font-size: 24px;
+    }
+
+.report_about p
+{
+    margin: 0;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 100;
+}
+.report_about li{
+    max-width:800px;
+    margin: auto;
+    margin-top: 10px;
+    
+    padding: 10px;
+    min-height: 75px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.report_about li p{
+    margin: 0;
+    padding: 0;
+    float: left;
+    max-width: 600px;
+    min-height: 80px;
+    font-size: 16px;
+}
+.report_about li .cont
+{
+    float:right;
+    max-width: 200px;
+}
+
+
+.report_about li .accept{
+   
+        background-color: white;
+        color: black;
+        border: 2px solid #0f5e05;
+        max-width: 150px;
+        height: 50px;
+        margin-top: 10px;
+        font-size: 18px;
+        font-family: 'Josefin Sans', sans-serif;
+}
+.report_about li .accept:hover{
+           background-color: #0f5e05;
+           color: white;
+   
+}
+.report_about li .reject:hover{
+    background-color:rgb(240,0,0);
+    color: white;
+
+}
+.report_about li .role 
+{
+    margin: auto;
+    padding:0;
+    width: 150px;
+    height: 50px;
+   
+}
+.report_about li .reject{
+    float: right;
+        background-color: white;
+        color: black;
+        margin-top: 10px;
+        border: 2px solid rgb(240,0,0);
+        max-width: 150px;
+        height: 50px;
+        font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+}

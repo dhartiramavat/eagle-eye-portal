@@ -1,0 +1,40 @@
+
+ <center><h3>Edit Profile</h3></center>
+    <div class="container">
+            {{#if errors}}
+            {{#each errors}}
+                <div class="alert alert-danger">{{msg}}</div>
+                {{/each}}
+            {{/if}}
+                    <form class="form" action="/users/edit_profile" method="POST">
+                            <div class="input-field col s6">
+                              <input placeholder="Enrollment" type="number" class="enno" name="enroll" value="{{data.enrollment}}" required>
+                              <input placeholder="Semester" type="number" class="enno" name="semester" value="{{data.semester}}" required>
+                              <input placeholder="Department" type="text" class="enno" name="department" value="{{data.department}}" required>
+                              <input placeholder="Name" type="text" class="name" name="name" value="{{data.name}}" required>
+                              <input placeholder="Mobile " type="number" class="enno" name="mobile" value="{{data.mobile}}" required>
+                              <input placeholder="Email" type="email" class="enno" name="email" value="{{data.email}}" required>
+                               <center> <label class="country_label">Gender</label></center>
+                                <select id="gender" name="gender" class="gender">   
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                </select>
+                            
+                    </div>
+                
+                    <div class="btns">
+                       
+                        <center><button class="login">Update</button></center>
+                    
+                    </div>
+                    
+                </form>
+                    
+                </div>    
+                
+                        
+                    
+            </div>
+<script>
+       document.querySelector('.gender').value='{{data.gender}}';
+</script>

@@ -1,0 +1,41 @@
+
+    <div class="container">
+            {{#if errors}}
+            {{#each errors}}
+                <div class="alert alert-danger">{{msg}}</div>
+                {{/each}}
+            {{/if}}
+                    <form class="form" action="/users/register" method="POST">
+                            <div class="input-field col s6">
+                              <input placeholder="Enrollment" type="number" class="enno" name="enroll" required>
+                              <input placeholder="Rollno" type="number" class="enno" name="rollno" required>
+                              <input placeholder="Name" type="text" class="name" name="name" required>
+                              <input placeholder="Mobile " type="number" class="enno" name="mobile" required>
+                              <input placeholder="Your Email" type="email" class="enno" name="email" required>
+                              <input placeholder="Parents Email" type="email" class="enno" name="pemail" required>
+                              <input placeholder="Password" type="password" class="validate" name="password" required>
+                              <input placeholder="Semester" type="number" class="validate" name="semester" required>
+                              <input placeholder="Department" type="text" class="validate" name="department" required>
+                             
+                                <center> <label class="country_label">Gender</label></center>
+                                   
+                                <select id="gender" name="gender">   
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                </select>
+                            
+                    </div>
+                
+                    <div class="btns">
+                       
+                        <center><button class="register">Register</button></center>
+                    
+                    </div>
+                    
+                </form>
+                    <center><p class="LoginView" onclick="location.href='index.html'">Already Registered?Login Here</p></center>
+                </div>    
+                
+                        
+                    
+            </div>

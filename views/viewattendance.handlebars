@@ -1,0 +1,41 @@
+<div class="report_about">
+                <!--<form method="POST" action="/users/confirmride">-->
+                <center><h3>Attendance Summary</h3></center>
+                <form action="/users/manage_report" method="POST">
+                    <center><div class="date_area">
+                        <label>From:<input type="date" name="from"/></label>
+                        <label>To:<input type="date" name="to"/></label>
+                          <button type="submit" class="date_apply">Apply</button>  
+                    </div></center>
+                </form>
+                    <ul class="list" id="list">
+                        
+        
+                    </ul>
+                
+            </div>
+<table style="background-color: rgba(0,0,0,0.6);width: 90%; 
+    margin-left: auto;
+    margin-right: auto;" class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Lecture</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Faculty</th>
+      <th scope="col">Time</th>
+    </tr>
+  </thead>
+  <tr>
+      <td>1</td>
+       <td>11-09-19</td>
+        <td>1</td>
+         <td>CD</td>
+          <td>Ankir Patel</td>
+           <td>08:45</td>
+
+  </tr>
+  <tbody id="content">
+  </tbody>
+</table>

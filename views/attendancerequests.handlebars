@@ -1,0 +1,64 @@
+<div class="report_about">
+                <!--<form method="POST" action="/users/confirmride">-->
+                <center><h3>Attendance Requests</h3></center>
+                <form action="/users/attendance_request" method="POST">
+                    <center><div class="date_area">
+                        <label>Date:<input type="date" name="date" required/></label>
+                        <label>Lecture:<select name='lecture' style="width:200px;margin-left:10px;"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+                          <button type="submit" class="date_apply">Send</button>  
+                    </div></center>
+                </form>
+                      <ul class="list" id="list">
+                          <center><h3 style="margin-top:20px;">Your Requests</h3></center>
+                  
+                        
+                        
+                        
+                       
+                        
+        
+                    </ul>
+                
+            </div>
+
+
+            <script>
+
+                 {{#each arr}}
+
+                {{#ifequal this.status 'Pending'}}
+                 var date=new Date('{{this.date}}');
+                                var newHtml='<li><p><span><strong>Date:%date%</strong></span><br/><span><strong>Lecture:%lecture%</strong></span><br/></p><div class="cont"><input type="hidden" value="%id%" name="req_id"><h3>Status:<span style="color:red;">%status%</span></h3><br/></div></li>';
+                                
+                                newHtml=newHtml.replace('%date%',date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear());
+                                newHtml=newHtml.replace('%lecture%','{{this.lecture}}');
+                                newHtml=newHtml.replace('%status%','{{this.status}}');
+                              
+                                document.querySelector('.list').insertAdjacentHTML('beforeend', newHtml);
+                
+                {{/ifequal}}
+                {{#ifequal this.status 'Rejected'}}
+                 var date=new Date('{{this.date}}');
+                                var newHtml='<li><p><span><strong>Date:%date%</strong></span><br/><span><strong>Lecture:%lecture%</strong></span><br/></p><div class="cont"><input type="hidden" value="%id%" name="req_id"><h3>Status:<span style="color:red;">%status%</span></h3><br/></div></li>';
+                                
+                                newHtml=newHtml.replace('%date%',date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear());
+                                newHtml=newHtml.replace('%lecture%','{{this.lecture}}');
+                                newHtml=newHtml.replace('%status%','{{this.status}}');
+                              
+                                document.querySelector('.list').insertAdjacentHTML('beforeend', newHtml);
+                
+                {{/ifequal}}
+                {{#ifequal this.status 'Done'}}
+                 var date=new Date('{{this.date}}');
+                                var newHtml='<li><p><span><strong>Date:%date%</strong></span><br/><span><strong>Lecture:%lecture%</strong></span><br/></p><div class="cont"><input type="hidden" value="%id%" name="req_id"><h3>Status:<span style="color:green;">%status%</span></h3><br/></div></li>';
+                                
+                                newHtml=newHtml.replace('%date%',date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear());
+                                newHtml=newHtml.replace('%lecture%','{{this.lecture}}');
+                                newHtml=newHtml.replace('%status%','{{this.status}}');
+                              
+                                document.querySelector('.list').insertAdjacentHTML('beforeend', newHtml);
+                
+                {{/ifequal}}
+                {{/each}}
+
+            </script>
